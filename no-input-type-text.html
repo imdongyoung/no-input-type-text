@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        @keyframes cursor {
+            from {
+                background-color: #000;
+                color: #000;
+            }
+            to {
+                background-color: #fff;
+                color: #fff;
+            }
+        }
+        .cursor {
+            background-color: #000;
+            animation-name: cursor;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+    
+        }
+        .wrap {
+            border: 1px solid #555;
+            width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <span class="key">
+
+        </span>
+        <span class="cursor">1</span>   
+    </div>
+    <script>
+        const key_wrap = document.querySelector(".key");
+        function a(i) {
+            if(i.key == "Backspace") {
+                key_wrap.innerText = key_wrap.innerText.slice(0, -1);
+            } else if (i.code == "Space") {
+                key_wrap.innerHTML += "&nbsp;";
+            } else {
+                key_wrap.innerText += i.key;
+                console.log(i);
+            }
+            
+        }
+
+        window.addEventListener("keydown", a);
+    </script>
+</body>
+</html>
